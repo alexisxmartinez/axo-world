@@ -764,6 +764,39 @@ test('location text follows physical arrival and projected labels avoid the bann
   assert.ok(parseFloat(h.get('building-retail').style.top) - h.get('building-retail').offsetHeight > 286, 'the focused label must move below the banner');
 });
 
+test('an arrived destination label uses the first unobstructed position while other occluded labels stay hidden', () => {
+  const h = appHarness();
+  h.world.width = 1440; h.world.height = 900;
+  h.world.points = [{ id: 'retail', position: [650,160] }, { id: 'rxp', position: [700,160] }, { id: 'slides', position: [300,600] }];
+  h.world.project = position => ({ x: position[0], y: position[1], visible: true });
+  assert.equal(h.window.AXO.scrollToProject('retail', { animate: false, route: false }), true);
+  assert.equal(h.state().currentStop, 'retail');
+  assert.equal(h.world.getArrivalState().currentProject, 'retail');
+  const retail = h.get('building-retail'), other = h.get('building-rxp');
+  assert.notEqual(h.document.activeElement, retail, 'arrival must protect the label without requiring keyboard focus');
+  // The DOM double uses document coordinates; these obstacles occupy the same
+  // viewport positions after direct travel as before scrolling.
+  h.get('live-story').layout = { left: 400, top: h.window.scrollY + 80, width: 620, height: 200 };
+  h.get('project-nav').layout = { left: 580, top: h.window.scrollY + 300, width: 160, height: 70 };
+  h.document.querySelector('.world-controls').layout = { left: 500, top: h.window.scrollY + 820, width: 400, height: 60 };
+  h.world.options.onFrame(h.world);
+  assert.equal(retail.style.visibility, 'visible', 'the arrived destination label must remain visible behind an obstruction');
+  assert.equal(retail.dataset.occluded, 'false');
+  assert.equal(parseFloat(retail.style.left), 720, 'the first candidate below the banner is blocked by navigation, so use the next free candidate');
+  assert.equal(parseFloat(retail.style.top), 522);
+  const box = { left: parseFloat(retail.style.left) - retail.offsetWidth / 2, right: parseFloat(retail.style.left) + retail.offsetWidth / 2, top: parseFloat(retail.style.top) - retail.offsetHeight, bottom: parseFloat(retail.style.top) };
+  for (const obstacle of [h.get('live-story'), h.get('project-nav'), h.document.querySelector('.world-controls')]) {
+    const rect = obstacle.getBoundingClientRect();
+    assert.ok(box.right <= rect.left - 6 || box.left >= rect.right + 6 || box.bottom <= rect.top - 6 || box.top >= rect.bottom + 6,
+      `the destination label must clear ${obstacle.id || 'world controls'} with the normal margin`);
+  }
+  assert.equal(other.style.visibility, 'hidden', 'an occluded noncurrent label must retain the ordinary hiding behavior');
+  assert.equal(other.dataset.occluded, 'true');
+  assert.equal(h.get('building-slides').style.visibility, 'visible');
+  assert.equal(parseFloat(h.get('building-slides').style.left), 300);
+  assert.equal(parseFloat(h.get('building-slides').style.top), 588, 'an unobstructed noncurrent label keeps its projected position');
+});
+
 function rendererHarness() {
   const { document } = makeDOM(); const canvas = document.querySelector('#world-canvas');
   let nextId = 0; const frames = new Map(); const uploads = new Map(); const bound = new Map();

@@ -1155,8 +1155,8 @@ function updateProjectedLabels(world) {
     let y = Math.max(height + 8, Math.min(world.height - 8, projected.y - (id === 'axo' ? 22 : 12)));
     const box = () => ({ left: x - width / 2, right: x + width / 2, top: y - height, bottom: y });
     let occluded = id !== 'axo' && overlaps(box());
-    const focused = document.activeElement === tag;
-    if (focused && (occluded || !projected.visible)) {
+    const keepVisible = document.activeElement === tag || id === state.currentStop;
+    if (keepVisible && (occluded || !projected.visible)) {
       const candidates = [
         [x, ($('#live-story')?.getBoundingClientRect().bottom || 0) + height + 20],
         [world.width / 2, world.height * .58], [width / 2 + 10, world.height * .65], [world.width - width / 2 - 10, world.height * .65]
@@ -1166,7 +1166,7 @@ function updateProjectedLabels(world) {
     }
     tag.classList.add('is-anchored');
     tag.style.left = `${x.toFixed(1)}px`; tag.style.top = `${y.toFixed(1)}px`; tag.style.right = 'auto';
-    tag.style.visibility = (projected.visible && !occluded) || focused ? 'visible' : 'hidden';
+    tag.style.visibility = (projected.visible && !occluded) || keepVisible ? 'visible' : 'hidden';
     tag.dataset.occluded = String(occluded);
   }
 }
