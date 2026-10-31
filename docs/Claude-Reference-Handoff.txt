@@ -1,0 +1,45 @@
+Audit these ten portfolio websites to help improve an original interactive portfolio called AXO:
+
+https://www.helloelva.com/
+https://david-hckh.com/
+https://camillemormal.com/
+https://fix.studio/
+https://jant.fr/
+https://www.joshuas.world/
+https://abhishekjha.me/index.html
+https://www.richardekwonye.com/
+https://www.varino.pt/en/projects-menu
+https://www.amiraliadib.com/
+
+AXO's direction: a small robotic axolotl walks in profile along a circular stone causeway inspired by Tenochtitlan. The lake town rotates beneath him as the visitor scrolls. Each building represents a project. AXO turns toward the building on arrival. The background is a cosmos with pink stellar clouds. Palette: #231942, #5e548e, #9f86c0, #be95c4, #e0b1cb. No bicycle. The site needs readable case studies, clear navigation, natural motion, and responsive stars, flowers, and flowing water.
+
+FOCUS ON EVIDENCE WE CANNOT CURRENTLY OBTAIN
+
+1. Inspect each live site at desktop 1440x900 and mobile 390x844. Record the actual URL, redirects, date, and which version is visible. Some supplied references may have changed.
+2. Capture the opening view, project index, one complete case study, navigation states, and mobile layout. Record short videos of scrolling, entering/exiting a project, pointer interaction, and any 3D world movement.
+3. Inspect publicly delivered HTML, CSS, JavaScript, and network requests. Identify frameworks/libraries only when supported by imports, bundle strings, package manifests, or official source repositories. Link the exact evidence.
+4. Explain how interactions work: scroll-to-animation mapping, camera versus world movement, raycasting/picking, hover states, transition interruption, inertia, easing, loading, asset preloading, route changes, back navigation, and focus restoration.
+5. Extract useful design measurements: type sizes, line heights, reading widths, spacing, contrast, breakpoints, navigation placement, button labels, project metadata, and how detailed text remains readable.
+6. Inspect performance: canvas resolution/DPR limits, model and texture formats, compression, asset sizes, request count, lazy loading, batching/instancing, animation loops, hidden-tab behavior, reduced motion, and touch support. Mark anything you cannot verify.
+7. Find official repositories, developer breakdowns, or talks. Record their license and whether they match the current live site. Do not treat a clone or historical concept as the current implementation.
+
+ALREADY FOUND
+
+- David's author repository: https://github.com/davidhckh/portfolio-2025 — its README/package identify Vue, TypeScript, Vite, Three.js, GSAP, Lenis, and Howler. Confirm the current live correspondence.
+- Joshua's repository: https://github.com/joshuavh/joshua-world — HTML exposes a WebGL canvas, loading/Explore state, project popups and modals, theme control, and js/3D.js. Its copy mentions 2022; current correspondence and the 3D implementation remain unverified.
+- Camille's public response at https://camillemormal.com/?device=m&webp=true exposes project routes and cached content; the actual transition engine is still unknown.
+- Fix's Sturdy case describes visitor-curated downloadable collections: https://fix.studio/work/sturdy/
+- Richard's article https://blog.richardekwonye.com/bezier-curves provides first-party motion explanations; it does not establish his current portfolio's stack.
+- Direct access to several sites failed here with HTTP 403 or ERR_BLOCKED_BY_CLIENT. Do not assume those sites are down.
+
+RETURN
+
+- A site-by-site technical report separating OBSERVED, SOURCE-VERIFIED, INFERRED, and UNKNOWN.
+- Screenshots and motion recordings with descriptive filenames.
+- An inventory of important public source files and assets, with URLs, purpose, format, and size where available.
+- Original pseudocode explaining the strongest techniques.
+- A ranked list of ideas for AXO: visitor value, implementation approach, effort, mobile behavior, and reduced-motion alternative.
+- A ZIP containing the report and supporting evidence.
+
+Prioritize understanding and transferable techniques. Keep third-party artwork and code separate from proposed original AXO implementations.
+

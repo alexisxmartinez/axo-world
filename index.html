@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" data-theme="day">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c101b">
+  <meta name="description" content="Alexis Martinez's portfolio, reimagined as a little lake city among the stars. Explore projects in product, automation, and creative technology with AXO the robot axolotl.">
+  <title>Alexis Martinez — AXO World</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2064%2064'%3E%3Crect%20width%3D'64'%20height%3D'64'%20rx%3D'18'%20fill%3D'%23231942'%2F%3E%3Cpath%20d%3D'm18%2023-9-8m9%2016H7m11%207-9%207m37-22%209-8m-9%2016h11m-11%207%209%207'%20stroke%3D'%23be95c4'%20stroke-width%3D'5'%20stroke-linecap%3D'round'%2F%3E%3Crect%20x%3D'15'%20y%3D'16'%20width%3D'34'%20height%3D'31'%20rx%3D'14'%20fill%3D'%23e0b1cb'%2F%3E%3Cellipse%20cx%3D'25'%20cy%3D'29'%20rx%3D'5'%20ry%3D'6'%20fill%3D'%23231942'%2F%3E%3Cellipse%20cx%3D'39'%20cy%3D'29'%20rx%3D'5'%20ry%3D'6'%20fill%3D'%23231942'%2F%3E%3Cellipse%20cx%3D'25'%20cy%3D'29'%20rx%3D'2.8'%20ry%3D'3.6'%20fill%3D'%239ceef2'%2F%3E%3Cellipse%20cx%3D'39'%20cy%3D'29'%20rx%3D'2.8'%20ry%3D'3.6'%20fill%3D'%239ceef2'%2F%3E%3Cpath%20d%3D'M27%2039q5%206%2010%200'%20fill%3D'none'%20stroke%3D'%23231942'%20stroke-width%3D'2'%20stroke-linecap%3D'round'%2F%3E%3C%2Fsvg%3E">
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="cosmic-dust" aria-hidden="true"></div>
+  <canvas id="cosmos-canvas" aria-hidden="true"></canvas>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="wordmark" href="#home" aria-label="Alexis Martinez home">
+        <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 40 36"><path d="m10 13-5-5m5 12H3m27-7 5-5m-5 12h7M20 8V3"/><rect x="9" y="9" width="22" height="21" rx="9"/><path d="M15 18v4m10-4v4"/></svg></span>
+        <span class="brand-name">Alexis Martinez<span class="wordmark-period">.</span><small>COSMIC LAKE</small></span>
+      </a>
+      <nav aria-label="Main navigation" class="main-nav">
+        <button type="button" data-panel="work"><span class="nav-number">01</span> Projects <span aria-hidden="true">↗</span></button>
+        <button type="button" data-panel="about"><span class="nav-number">02</span> About me <span aria-hidden="true">↗</span></button>
+      </nav>
+      <button type="button" class="status-button" id="hello-button"><span class="status-dot"></span>Say hello to AXO <span aria-hidden="true">↗</span></button>
+    </header>
+
+    <main id="main">
+      <section class="world-page scroll-story" aria-labelledby="journey-title" id="scroll-story">
+        <div class="story-copy scroll-anchors" aria-hidden="true" inert>
+        <div class="scan-stage" id="scan-stage"></div>
+        <div class="hero-copy" id="home">
+          <p class="eyebrow"><span class="tiny-star" aria-hidden="true">✦</span> Product, automation &amp; cosmic curiosity</p>
+          <p class="version-stamp">COSMIC LAKE</p>
+          <h1 id="hero-title">Ideas, built<br><em>into worlds.</em></h1>
+          <p class="hero-description">I'm Alexis. I turn complex challenges into<br class="desktop-break"> <span class="word-swap" data-words="useful|shipped|governed|measured|living">useful</span> things, and leave room for wonder.</p>
+          <p class="world-invitation">Welcome to my lake city among the stars.<br>Every building holds a project.<br>Scroll to follow AXO.<br>The city turns as his journey unfolds.</p>
+          <div class="hero-actions"><button type="button" class="primary-button" id="explore-button">Begin the journey <span aria-hidden="true">↓</span></button><span class="explore-note"><span aria-hidden="true">⌁</span> Scroll. Walk. Discover.</span></div>
+          <div class="world-origin"><span class="origin-line" aria-hidden="true"></span><span>Rooted in Tenochtitlan.<br><strong>Always looking forward.</strong></span></div>
+        </div>
+
+        <div id="scroll-chapters" aria-label="Project chapters"></div>
+        <div class="story-ending"><span aria-hidden="true">✦</span><p>Different challenges.<br><em>The same curiosity.</em></p><button class="text-link" type="button" data-panel="about">A little more about me ↗</button></div>
+        </div>
+
+        <div class="world-stage" id="world-stage" aria-label="A centered interactive lake city inspired by Tenochtitlan, floating in a pink stellar nebula. Scroll to guide AXO as the city turns. Each building is a project.">
+          <div class="world-halo" aria-hidden="true"></div>
+          <div class="orbital-ring" aria-hidden="true"></div>
+          <div class="star-marker star-marker-one" aria-hidden="true">+</div>
+          <div class="star-marker star-marker-two" aria-hidden="true">✧</div>
+          <canvas id="world-canvas" role="img" aria-label="A cosmic lake city of six project buildings, stone causeways, and living gardens. AXO the small robot axolotl walks as you scroll. Choose a project, brush the flowers, or tap the canals."></canvas>
+          <div class="world-fallback" id="world-fallback" hidden>
+            <svg id="fallback-city" viewBox="0 0 760 600" role="img" aria-label="Six colorful workshops on a canal island in the cosmos, with a tiny robotic axolotl exploring the paths">
+              <defs>
+                <linearGradient id="island-edge" x2="0" y2="1"><stop stop-color="#315561"/><stop offset="1" stop-color="#1a2b42"/></linearGradient>
+                <linearGradient id="lake-shine" x2="1" y2="1"><stop stop-color="#84cac2"/><stop offset="1" stop-color="#3b8b99"/></linearGradient>
+                <filter id="city-shadow"><feGaussianBlur stdDeviation="14"/></filter>
+                <g id="small-tree"><path d="M0 0v-22" stroke="#d1bd92" stroke-width="5"/><ellipse cy="-28" rx="14" ry="17" fill="#6f9d91"/><ellipse cx="-6" cy="-33" rx="9" ry="11" fill="#a4bca1"/></g>
+                <g id="garden"><path d="m-28 0 31-16 31 17-32 16z" fill="#d6d1a8"/><path d="m-22 0 25-11 24 12-26 11z" fill="#5b9789"/><path d="m-12-2 21 11m-9-18 20 11" stroke="#a5bd8d" stroke-width="3"/></g>
+                <g id="tiny-axo" stroke="#231942" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M-3-3C-17 4-27-7-25-19C-14-17-17-7-4-9" fill="#be95c4"/><path d="M-22-17Q-15-12-16-4" fill="none" stroke="#e0b1cb"/>
+                  <g fill="#be95c4"><path d="M-8-6-10 1Q-6 5-3 1L-2-5M2-5 3 1Q7 5 10 1L8-6"/><path d="M-8-15Q-16-15-13-5L-9-4M8-15Q16-16 13-5L9-4"/></g>
+                  <path d="M-8-17Q0-21 8-17L9-5Q0 0-9-5Z" fill="#e0b1cb"/><path d="M-8-7Q0-2 8-7" fill="none" stroke="#9f86c0"/>
+                  <g fill="#9f86c0"><circle cx="-11" cy="-14" r="2.1"/><circle cx="11" cy="-14" r="2.1"/><circle cx="-12" cy="-5" r="2"/><circle cx="12" cy="-5" r="2"/></g>
+                  <rect x="-4.5" y="-14" width="9" height="7" rx="2" fill="#231942"/><path d="m-3-10 2 0 1-2 1 3 1-1h1" fill="none" stroke="#9ceef2" stroke-width=".9"/>
+                  <g fill="#e0b1cb" stroke="#9f86c0"><path d="M-12-30Q-25-43-21-33L-14-25ZM12-30Q25-43 21-33L14-25Z"/><path d="M-13-26Q-29-33-24-24L-14-21ZM13-26Q29-33 24-24L14-21Z"/><path d="M-13-20Q-27-23-22-16L-12-16ZM13-20Q27-23 22-16L12-16Z"/></g>
+                  <path d="m-20-34 4 5m-8 3 7 2m-5 6 6 0m36-16-4 5m8-3-7 2m5 6-6 0" fill="none" stroke="#f6f2f8" stroke-width=".8"/>
+                  <rect x="-14" y="-35" width="28" height="23" rx="11" fill="#e0b1cb"/><path d="m-6-34 2 5h8l2-5M-13-20l3 6m23-6-3 6" fill="none" stroke="#9f86c0" stroke-width=".9"/>
+                  <g fill="#231942"><ellipse cx="-6.5" cy="-24" rx="3.4" ry="4.2"/><ellipse cx="6.5" cy="-24" rx="3.4" ry="4.2"/></g>
+                  <g fill="#9ceef2" stroke="none"><ellipse cx="-6.5" cy="-24" rx="1.9" ry="2.6"/><ellipse cx="6.5" cy="-24" rx="1.9" ry="2.6"/></g>
+                  <path d="M-3-18Q0-14 3-18Z" fill="#231942"/><path d="m-11-19 1-1m20 1 1-1" stroke="#f6f2f8"/>
+                </g>
+              </defs>
+              <ellipse cx="385" cy="475" rx="263" ry="57" fill="#060910" opacity=".42" filter="url(#city-shadow)"/>
+              <path d="M95 330Q102 261 365 218Q617 242 670 336L670 371Q614 448 387 485Q160 455 95 369Z" fill="url(#island-edge)"/>
+              <path d="M95 330Q138 260 365 218Q596 233 670 336Q618 410 387 451Q151 420 95 330Z" fill="#aec1a5"/>
+              <path d="M117 330Q157 272 367 237Q583 252 646 335Q597 392 387 431Q171 403 117 330Z" fill="url(#lake-shine)"/>
+              <g fill="#9f86c0" stroke="#be95c4" stroke-width="2">
+                <path d="m166 307 112-39 103 47-115 45z"/><path d="m315 260 108-20 102 40-109 35z"/>
+                <path d="m427 302 123-36 67 44-112 43z"/><path d="m461 368 113-40 43 38-113 39z"/>
+                <path d="m294 380 110-44 93 42-109 48z"/><path d="m155 353 107-31 66 39-106 40z"/>
+              </g>
+              <g stroke="#be95c4" fill="none" stroke-width="16" stroke-linecap="round"><path d="m271 325 142-51 95 53-126 70-147-42 36-30"/><path d="m413 274 4 60-35 63m35-63 91-7m-91 7-146-9"/></g><g stroke="#9f86c0" fill="none" stroke-width="12" stroke-linecap="round"><path d="m271 325 142-51 95 53-126 70-147-42 36-30"/><path d="m413 274 4 60-35 63m35-63 91-7m-91 7-146-9"/></g><g stroke="#5e548e" fill="none" stroke-width="12" stroke-linecap="butt" stroke-dasharray="1 13" opacity=".65"><path d="m271 325 142-51 95 53-126 70-147-42 36-30"/><path d="m413 274 4 60-35 63m35-63 91-7m-91 7-146-9"/></g>
+              <g stroke="#231942" stroke-width="2" stroke-linejoin="round">
+                <g id="fallback-building-retail" data-fallback-building="retail"><path d="m199 302 66-23 58 27-68 26z" fill="#5e548e"/><path d="m210 296 54-19 48 22v-50l-48-22-54 19z" fill="#9f86c0"/><path d="m264 227 48 22v50l-48-22z" fill="#5e548e"/><path d="m202 244 62-24 57 27-59 24z" fill="#be95c4"/><path d="m211 238 53-20 49 22-52 21z" fill="#e0b1cb"/><path d="m219 265 17-6v20l-17 6zm29-10 10-4v20l-10 4z" fill="#231942"/><path d="m273 264 17 8v19l-17-8z" fill="#e0b1cb"/><path d="M264 218v-25m0 2 26 12-26 4" fill="#be95c4"/></g>
+                <g id="fallback-building-rxp" data-fallback-building="rxp"><path d="m350 267 65-21 57 26-68 24z" fill="#5e548e"/><path d="m359 260 47-17 46 21v-37l-46-21-47 17z" fill="#9f86c0"/><path d="m406 206 46 21v37l-46-21z" fill="#5e548e"/><path d="m350 224 56-20 55 24-56 21z" fill="#be95c4"/><path d="m362 215 44-17 45 21-45 16z" fill="#e0b1cb"/><path d="m374 227 23-9v25l-23 9z" fill="#231942"/><path d="m416 228 23 11v12l-23-11z" fill="#e0b1cb"/><path d="m401 200v-23m0 1 20 10-20 3" fill="#be95c4"/></g>
+                <g id="fallback-building-slides" data-fallback-building="slides"><path d="m484 309 58-20 54 25-59 21z" fill="#5e548e"/><path d="m491 303 46-16 47 22v-39l-47-22-46 16z" fill="#9f86c0"/><path d="m537 248 47 22v39l-47-22z" fill="#5e548e"/><path d="m484 264 53-21 56 26-57 20z" fill="#be95c4"/><path d="m493 258 44-17 47 22-48 17z" fill="#e0b1cb"/><path d="m503 270 24-8v25l-24 8z" fill="#231942"/><path d="m544 271 28 13v10l-28-13z" fill="#e0b1cb"/></g>
+                <g id="fallback-building-learning" data-fallback-building="learning"><path d="m191 365 48-18 47 22-48 18z" fill="#5e548e"/><path d="m197 357 40-15 42 19v-30l-42-19-40 14z" fill="#9f86c0"/><path d="m237 312 42 19v30l-42-19z" fill="#5e548e"/><path d="m188 327 49-19 51 23-51 19z" fill="#be95c4"/><path d="m197 319 40-14 41 19-42 15z" fill="#e0b1cb"/><path d="m209 337 20-7v22l-20 7z" fill="#231942"/><path d="m247 338 22 10v9l-22-10z" fill="#e0b1cb"/></g>
+                <g id="fallback-building-adoption" data-fallback-building="adoption"><path d="m344 397 55-21 51 24-54 22z" fill="#5e548e"/><path d="m351 390 46-18 44 21v-41l-44-21-46 17z" fill="#9f86c0"/><path d="m397 331 44 21v41l-44-21z" fill="#5e548e"/><path d="m342 347 55-22 54 25-54 23z" fill="#be95c4"/><path d="m353 338 44-17 44 20-44 18z" fill="#e0b1cb"/><path d="m364 354 22-8v26l-22 9z" fill="#231942"/><path d="m405 355 24 11v13l-24-11z" fill="#e0b1cb"/></g>
+                <g id="fallback-building-playbooks" data-fallback-building="playbooks"><path d="m507 376 48-19 45 22-48 19z" fill="#5e548e"/><path d="m513 368 39-15 39 19v-32l-39-19-39 14z" fill="#9f86c0"/><path d="m552 321 39 19v32l-39-19z" fill="#5e548e"/><path d="m504 334 48-18 49 23-49 20z" fill="#be95c4"/><path d="m515 326 37-14 38 18-38 15z" fill="#e0b1cb"/><path d="m524 344 20-7v24l-20 7z" fill="#231942"/><path d="m559 345 22 11v10l-22-11z" fill="#e0b1cb"/></g>
+              </g>
+              <g><use href="#garden" x="151" y="327"/><use href="#garden" x="331" y="405"/><use href="#garden" x="581" y="346"/><use href="#small-tree" x="174" y="319"/><use href="#small-tree" x="315" y="280"/><use href="#small-tree" x="464" y="282"/><use href="#small-tree" x="610" y="335"/><use href="#small-tree" x="470" y="402"/><use href="#small-tree" x="281" y="389"/></g>
+              <clipPath id="scan-clip"><rect id="scan-clip-rect" x="-60" y="-80" width="120" height="80"/></clipPath><g id="fallback-axo" transform="translate(290 332)"><ellipse cy="3" rx="15" ry="5" fill="#1b434d" opacity=".3"/><use href="#tiny-axo" opacity=".3"/><use href="#tiny-axo" clip-path="url(#scan-clip)"/></g>
+              <g fill="#d5e4cf" opacity=".6"><ellipse cx="153" cy="365" rx="12" ry="3"/><ellipse cx="435" cy="419" rx="15" ry="3"/><ellipse cx="601" cy="308" rx="10" ry="2"/></g>
+            </svg>
+            <p>ILLUSTRATED CITY / SCROLL TO GUIDE AXO</p>
+          </div>
+          <button type="button" id="mascot-button" class="world-tag mascot-tag" aria-label="Meet AXO, your wandering robot axolotl guide"><span class="tag-dot"></span>AXO <span aria-hidden="true">↗</span></button>
+          <button type="button" id="building-retail" class="world-tag building-tag tag-retail" data-destination="retail"><span class="tag-number">01</span>Virtual Retail <span aria-hidden="true">↗</span></button>
+          <button type="button" id="building-rxp" class="world-tag building-tag tag-rxp" data-destination="rxp"><span class="tag-number">02</span>Content Studio <span aria-hidden="true">↗</span></button>
+          <button type="button" id="building-slides" class="world-tag building-tag tag-slides" data-destination="slides"><span class="tag-number">03</span>Quote Works <span aria-hidden="true">↗</span></button>
+          <button type="button" id="building-playbooks" class="world-tag building-tag tag-playbooks" data-destination="playbooks"><span class="tag-number">04</span>Mission Control <span aria-hidden="true">↗</span></button>
+          <button type="button" id="building-adoption" class="world-tag building-tag tag-adoption" data-destination="adoption"><span class="tag-number">05</span>Adoption Lab <span aria-hidden="true">↗</span></button>
+          <div class="scan-ui" id="scan-ui" data-scan-progress="0">
+            <svg class="scan-lines" id="scan-lines" aria-hidden="true"><path id="scan-line-who"/><path id="scan-line-what"/><path id="scan-line-how"/><circle id="scan-dot-who" r="3"/><circle id="scan-dot-what" r="3"/><circle id="scan-dot-how" r="3"/></svg>
+            <div class="scan-bracket" id="scan-bracket" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <div class="scan-card" id="scan-card-who" data-scan-threshold=".25" hidden><strong>Alexis Martinez</strong><span>Guadalajara, Mexico</span></div>
+            <div class="scan-card" id="scan-card-what" data-scan-threshold=".55" hidden><p>Product owner for AI and automation. I take ambiguous problems to production, with the governance built in.</p></div>
+            <div class="scan-card scan-card-tags" id="scan-card-how" data-scan-threshold=".85" hidden><span>Agentic AI</span><span>Power Platform</span><span>Enterprise security</span><span>Data storytelling</span></div>
+            <p class="scan-counter" id="scan-counter" aria-live="off"><span class="sr-only">Scan progress </span><span id="scan-counter-value">000</span></p>
+            <div class="scan-progress" id="scan-progress" aria-hidden="true"><i id="scan-progress-fill"></i></div>
+          </div>
+          <button type="button" id="building-learning" class="world-tag building-tag tag-learning" data-destination="learning"><span class="tag-number">06</span>Planning Bot <span aria-hidden="true">↗</span></button>
+
+        </div>
+
+      </section>
+
+      <div id="illustration-store" hidden aria-hidden="true">
+        <img data-illustration="retail" src="./assets/illustrations/retail.webp" data-placeholder="./assets/illustrations/retail-tiny.webp" width="1600" height="900" alt="" loading="lazy" decoding="async">
+        <img data-illustration="rxp" src="./assets/illustrations/rxp.webp" data-placeholder="./assets/illustrations/rxp-tiny.webp" width="1600" height="900" alt="" loading="lazy" decoding="async">
+        <img data-illustration="slides" src="./assets/illustrations/slides.webp" data-placeholder="./assets/illustrations/slides-tiny.webp" width="1600" height="900" alt="" loading="lazy" decoding="async">
+        <img data-illustration="playbooks" src="./assets/illustrations/playbooks.webp" data-placeholder="./assets/illustrations/playbooks-tiny.webp" width="1600" height="900" alt="" loading="lazy" decoding="async">
+        <img data-illustration="adoption" src="./assets/illustrations/adoption.webp" data-placeholder="./assets/illustrations/adoption-tiny.webp" width="1600" height="900" alt="" loading="lazy" decoding="async">
+        <img data-illustration="learning" src="./assets/illustrations/learning.webp" data-placeholder="./assets/illustrations/learning-tiny.webp" width="1600" height="900" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="scene-caption live-story" id="live-story" aria-live="polite" aria-atomic="true">
+        <div class="journey-topline"><button type="button" class="journey-step" id="project-prev" aria-label="Previous project" disabled>← Previous</button><p id="journey-counter">Explore 6 projects</p><button type="button" class="journey-step" id="project-next" aria-label="Next project">Next →</button></div>
+        <p class="destination-label" id="current-destination">ALEXIS MARTINEZ / A SMALL WORLD OF IDEAS</p>
+        <h1 id="journey-title">Ideas, built into worlds.</h1>
+        <p id="journey-summary">A lake city among the stars. Meet AXO, your small guide to the projects and ideas that live here.</p>
+        <button type="button" class="journey-detail" id="journey-detail" data-destination="retail">Start exploring ↓</button>
+        <p class="journey-instructions"><span id="axo-location" data-location-status="intro">Scroll to move AXO · Choose a place below</span></p>
+      </div>
+
+      <nav class="project-nav" id="project-nav" aria-label="Explore the six project buildings">
+        <div class="project-nav-heading"><span>THE ISLAND INDEX</span><button type="button" id="project-preview-toggle" aria-controls="project-preview" aria-expanded="false">Preview <span aria-hidden="true">↗</span></button></div>
+        <button type="button" id="nav-retail" data-destination="retail" title="Visit Virtual Retail"><span class="project-nav-number">01</span><span class="project-nav-name">Virtual Retail</span><span class="project-nav-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" id="nav-rxp" data-destination="rxp" title="Visit Content Studio"><span class="project-nav-number">02</span><span class="project-nav-name">Content Studio</span><span class="project-nav-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" id="nav-slides" data-destination="slides" title="Visit Quote Works"><span class="project-nav-number">03</span><span class="project-nav-name">Quote Works</span><span class="project-nav-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" id="nav-playbooks" data-destination="playbooks" title="Visit Mission Control"><span class="project-nav-number">04</span><span class="project-nav-name">Mission Control</span><span class="project-nav-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" id="nav-adoption" data-destination="adoption" title="Visit Adoption Lab"><span class="project-nav-number">05</span><span class="project-nav-name">Adoption Lab</span><span class="project-nav-arrow" aria-hidden="true">↗</span></button>
+        <button type="button" id="nav-learning" data-destination="learning" title="Visit Planning Bot"><span class="project-nav-number">06</span><span class="project-nav-name">Planning Bot</span><span class="project-nav-arrow" aria-hidden="true">↗</span></button>
+      </nav>
+
+      <aside id="project-preview" class="project-preview" aria-labelledby="preview-title" data-no-cosmos hidden>
+        <div class="preview-topline"><p class="preview-kicker">Inside this workshop</p><button type="button" id="preview-close" aria-label="Close project preview">✕</button></div>
+        <h2 id="preview-title">Virtual Retail</h2>
+        <p id="preview-summary">A helpful AI companion for the people helping customers.</p>
+        <button type="button" id="preview-visit" class="preview-visit" data-destination="retail">Visit this project <span aria-hidden="true">↗</span></button>
+      </aside>
+
+      <details class="world-discovery" id="world-discovery">
+        <summary><span class="discovery-symbol" aria-hidden="true">✦</span><span>Living world<small>Three little things to try</small></span><span class="discovery-plus" aria-hidden="true">+</span></summary>
+        <div class="discovery-body"><p>There is more here than meets the eye.</p><div class="discovery-effects" aria-label="Explore the living world">
+          <button type="button" data-effect="stars"><span aria-hidden="true">✧</span><span>Wake the stars<small>A little cosmic spark</small></span><span aria-hidden="true">↗</span></button>
+          <button type="button" data-effect="flowers"><span aria-hidden="true">✿</span><span>Bloom the gardens<small>A moment of color</small></span><span aria-hidden="true">↗</span></button>
+          <button type="button" data-effect="water"><span aria-hidden="true">≈</span><span>Ripple the canals<small>A wave across the lake</small></span><span aria-hidden="true">↗</span></button>
+        </div><button type="button" class="discovery-guide" data-panel="flora">Meet the flowers <span aria-hidden="true">↗</span></button><p class="discovery-hint">Move through the stars. Brush the gardens. Tap the canals.</p></div>
+      </details>
+
+        <aside class="world-controls" aria-label="World controls">
+          <div class="scene-label"><span class="live-dot"></span>SCROLL TO MOVE AXO<span class="label-separator">/</span><span id="time-label">sunlit city</span></div>
+          <div class="control-group">
+            <button type="button" class="text-control tour-control" id="tour-toggle"><span class="tour-dot" aria-hidden="true"></span><span id="tour-label">Scroll to explore ↓</span></button>
+            <span class="control-separator"></span>
+            <button type="button" class="icon-control" id="rotate-left" aria-label="Rotate world left">↶</button>
+            <button type="button" class="icon-control" id="rotate-right" aria-label="Rotate world right">↷</button>
+            <span class="control-separator"></span>
+            <button type="button" class="text-control" id="sound-toggle" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9Zm13 0 4 6m0-6-4 6"/></svg><span>Sound off</span></button>
+            <button type="button" class="icon-control" id="theme-toggle" aria-label="Switch to night" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg></button>
+            <button type="button" class="icon-control" id="motion-toggle" aria-label="Pause animation" aria-pressed="false"><span aria-hidden="true">Ⅱ</span></button>
+          </div>
+        </aside>
+
+
+      <footer class="site-footer"><span>© 2026 ALEXIS MARTINEZ <span class="footer-year">MADE WITH CURIOSITY</span></span><span class="drag-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10V5a2 2 0 0 1 4 0v7-2a2 2 0 0 1 4 0v2a2 2 0 0 1 4 0v5c0 4-3 6-6 6-3 0-4-2-6-5l-3-4c-1-2 1-3 3-1l2 2"/></svg>Scroll to move AXO. Select a project.</span><button type="button" data-panel="credits">About this little world <span aria-hidden="true">✦</span></button></footer>
+    </main>
+  </div>
+
+  <div class="panel-scrim" id="panel-scrim" hidden></div>
+  <dialog id="content-panel" class="content-panel" aria-labelledby="panel-title">
+    <div class="panel-topline"><span class="eyebrow" id="panel-category">The projects</span><button type="button" id="close-panel" class="close-button" aria-label="Close panel">✕</button></div>
+    <div id="panel-body"></div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>

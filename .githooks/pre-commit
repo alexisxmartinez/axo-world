@@ -1,0 +1,6 @@
+#!/bin/sh
+# Blocks commits that contain internal identifiers. Install: git config core.hooksPath .githooks
+PATTERN='SRS20|EPR[ _]?[0-9]|IV ?8[0-9]{3}|DaVinci|OneID|Widen|PRISM|Hermes|ADP-[0-9]'
+if git diff --cached -U0 | grep -E "^\+" | grep -Ei "$PATTERN"; then
+  echo "Commit blocked: internal identifier found in staged changes (see .githooks/pre-commit)."; exit 1
+fi
