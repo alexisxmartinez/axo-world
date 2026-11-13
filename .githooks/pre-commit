@@ -32,6 +32,9 @@ try {
     .split('\0').filter(Boolean);
   let blocked = false;
   for (const file of files) {
+    // release/index.html is the published standalone bundle. Its packed data produces false matches
+    // on the raw bytes, so tests/release.test.mjs unpacks it and checks the real text against this pattern.
+    if (file === 'release/index.html') continue;
     const patch = git(['diff', ...options, '--unified=0', ...revisions, '--', file]);
     let lineNumber = null;
     for (const line of patch.split('\n')) {
