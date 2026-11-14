@@ -20,7 +20,7 @@ jobs:
       - run: npm run build
       - run: npm test
       - uses: actions/upload-pages-artifact@v3
-        with: { path: dist }
+        with: { path: release }
   deploy:
     needs: build
     runs-on: ubuntu-latest

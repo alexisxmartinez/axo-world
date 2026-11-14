@@ -1253,7 +1253,7 @@ function measureScrollJourney() {
 function updateScrollJourney(force = false) {
   if (scrollAnchors.length !== projectOrder.length + 1) return;
   const pageY = Math.max(0, Number(window.scrollY) || 0);
-  setScanProgress(scanLength > 0 ? Math.max(0, 1 - pageY / scanLength) : 0);
+  setScanProgress(scanLength > 0 ? Math.min(1, pageY / scanLength) : 1);
   const y = Math.max(0, pageY - scanLength);
   let progress = y >= scrollAnchors.at(-1) && scrollAnchors.at(-1) > 0 ? 1 : 0;
   for (let i = 0; i < projectOrder.length; i++) {

@@ -8,6 +8,12 @@ AXO World is Alexis Martinez's original interactive portfolio. A small robotic a
 - Optional real-browser check: `node tests/browser-qa.mjs` (needs Playwright and Chromium)
 - Node 22 or newer. No npm install is needed.
 
+## What is live
+- GitHub Pages serves `release/index.html`, a standalone bundle of the newer AXO World (built Oct 19, 2026). Its source is not in this repo yet.
+- `src/` and the root `index.html` are the v5 source and its template. Editing them does not change the live site until the newer source is brought in.
+- Never overwrite the root `index.html` with a built bundle. It is the build template, and doing so breaks the build and the tests.
+- To publish a new standalone, replace `release/index.html` on a card branch. `tests/release.test.mjs` must pass.
+
 ## How work arrives
 Work comes as a card with an id, a branch name, the files you may touch and acceptance lines.
 1. One card, one branch, named `card/NNN-slug`. Never commit to main, never merge.
